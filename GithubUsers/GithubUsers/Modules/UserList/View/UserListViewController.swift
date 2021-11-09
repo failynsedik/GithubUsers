@@ -8,6 +8,7 @@
 import NotificationBannerSwift
 import SnapKit
 
+/// The trigger point for calling getUsers
 private enum GetUserListTriggerPoint {
     case onLoad
     case onRefresh
@@ -66,6 +67,7 @@ extension UserListViewController {
 
         title = "Github DM"
 
+        // TODO: Find better way for the refresh since this approach does not look good on large title nav bar
         let refreshBarButtonItem = UIBarButtonItem(
             barButtonSystemItem: .refresh,
             target: self,
@@ -124,6 +126,7 @@ extension UserListViewController {
                 self?.reloadTableView(triggerPoint)
             }
             .catch { error in
+                // NOTE: Wasn't able to check the rate limit since `x-ratelimit-remaining` always returns 59
                 let banner = NotificationBanner(subtitle: error.localizedDescription, style: .danger)
                 banner.show()
             }
@@ -153,6 +156,8 @@ extension UserListViewController: UIScrollViewDelegate {
         if scrollView == tableView {
             if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
                 if !viewModel.isLoading {
+                    // Fetch the next user list if already reached
+                    // the end of the current list
                     getUsers(.onEndOfList)
                 }
             }
@@ -186,6 +191,8 @@ extension UserListViewController: UITableViewDataSource {
             cell.setup(content: content)
             return cell
         }
+
+        // TODO: Add a **similar** behavior as Slack -> "You're up to date! 🎉"
 
         return UITableViewCell()
     }

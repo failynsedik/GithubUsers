@@ -7,7 +7,10 @@
 
 import Foundation
 
+/// The model used for the data needed on `UserTableViewCell`.
 struct UserTableViewCellContent {
+    /// If this is `nil`, we will still show the placeholder
     let avatarURL: URL?
+    /// Prepended with "@"
     let username: String
 }

@@ -7,6 +7,7 @@
 
 import Moya
 
+/// NOTE: Should hold endpoints related to users
 enum UserAPI {
     /// - Parameters:
     ///   - since: A user ID. Only return users with an ID greater than this ID.

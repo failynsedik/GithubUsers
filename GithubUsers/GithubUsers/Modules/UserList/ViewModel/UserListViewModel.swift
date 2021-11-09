@@ -33,6 +33,7 @@ extension UserListViewModel {
         users.count
     }
 
+    /// Returns a "ready" (meaning, already formatted) model for `UserTableViewCell`.
     func getUserCellContent(for row: Int) -> UserTableViewCellContent? {
         guard let user = users[safe: row] else { return nil }
 
@@ -52,6 +53,7 @@ extension UserListViewModel {
         users.removeAll()
     }
 
+    /// Resets the `lastFetchedUserID` to the beginning state
     func resetLastFetchedUser() {
         lastFetchedUserID = 0
     }
