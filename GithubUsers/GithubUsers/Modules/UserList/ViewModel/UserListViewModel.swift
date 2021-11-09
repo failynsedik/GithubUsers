@@ -12,7 +12,7 @@ class UserListViewModel {
     // MARK: - Properties
 
     private var users: [UserResponse]
-    private var lastFetchedUser: Int = 0
+    private(set) var lastFetchedUserID: Int = 0
     var isLoading: Bool = false
 
     // MARK: - Initializer
@@ -58,12 +58,12 @@ extension UserListViewModel {
             return
         }
 
-        self.lastFetchedUser = lastFetchedUser
+        lastFetchedUserID = lastFetchedUser
     }
 
     func getUsers() -> Promise<[UserResponse]> {
         let limit = 10
-        let promise: Promise<[UserResponse]> = networkManager.request(target: .getUsers(since: lastFetchedUser, limit: limit))
+        let promise: Promise<[UserResponse]> = networkManager.request(target: .getUsers(since: lastFetchedUserID, limit: limit))
 
         promise.done { [weak self] userResponse in
             self?.users.append(contentsOf: userResponse)
