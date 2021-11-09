@@ -9,7 +9,7 @@ target 'GithubUsers' do
   pod 'Moya', '~> 15.0.0' # Network Abstraction Layer
   pod 'PromiseKit', '~> 6.15.3' # Swift Promises
   pod 'SnapKit', '~> 5.0.1' # Programmatic Auto Layout
-  pod 'SwiftFormat', '~> 0.48.16' # Code Formatter
+  pod 'SwiftFormat/CLI', '~> 0.48.16' # Code Formatter
 
   # Pods for GithubUsers
 
