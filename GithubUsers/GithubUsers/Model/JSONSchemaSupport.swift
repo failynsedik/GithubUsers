@@ -11,7 +11,7 @@ import Foundation
 
 func newJSONDecoder() -> JSONDecoder {
     let decoder = JSONDecoder()
-    if #available(iOS 10.0) {
+    if #available(iOS 10.0, *) {
         decoder.dateDecodingStrategy = .iso8601
     }
     return decoder
@@ -19,7 +19,7 @@ func newJSONDecoder() -> JSONDecoder {
 
 func newJSONEncoder() -> JSONEncoder {
     let encoder = JSONEncoder()
-    if #available(iOS 10.0) {
+    if #available(iOS 10.0, *) {
         encoder.dateEncodingStrategy = .iso8601
     }
     return encoder
