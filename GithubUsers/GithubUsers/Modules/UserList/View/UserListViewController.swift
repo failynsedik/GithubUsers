@@ -8,7 +8,7 @@
 import NotificationBannerSwift
 import SnapKit
 
-private enum GetUserOrigin {
+private enum GetUserListTriggerPoint {
     case onLoad
     case onRefresh
     case onEndOfList
@@ -95,12 +95,12 @@ extension UserListViewController {
         getUsers(.onRefresh)
     }
 
-    private func getUsers(_ origin: GetUserOrigin) {
+    private func getUsers(_ triggerPoint: GetUserListTriggerPoint) {
         // Do not proceed if currently fetching data
         guard !viewModel.isLoading else { return }
         viewModel.isLoading = true
 
-        switch origin {
+        switch triggerPoint {
         case .onLoad, .onRefresh:
             // Should start from the first
             viewModel.clearUsers()
