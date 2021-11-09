@@ -9,11 +9,6 @@ Supports both dark mode and normal mode.
 ## Project Description
 
 This project is something I did for a technical exam. But, I will go back to this if I learn something new and if I wanted to try that new stuff on this particular project.
-- Coding style
-- Code organization
-- Subclasses
-- Extensions
-- Code documentation
 
 ## Features
 - Displays a list of Github users with their username and avatar shown
