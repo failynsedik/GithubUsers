@@ -13,7 +13,7 @@ extension UIView {
         x width: CGFloat,
         y height: CGFloat,
         blur shadowRadius: CGFloat,
-        shadowColor: UIColor = .black,
+        shadowColor: UIColor = .label,
         shadowOpacity: Float
     ) {
         layer.cornerRadius = cornerRadius
