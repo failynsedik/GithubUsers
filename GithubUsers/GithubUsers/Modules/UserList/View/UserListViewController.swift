@@ -104,6 +104,8 @@ extension UserListViewController {
         case .onLoad, .onRefresh:
             // Should start from the first
             viewModel.clearUsers()
+            viewModel.resetLastFetchedUser()
+
         case .onEndOfList:
             // Do nothing...
             break

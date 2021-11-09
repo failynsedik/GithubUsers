@@ -52,6 +52,10 @@ extension UserListViewModel {
         users.removeAll()
     }
 
+    func resetLastFetchedUser() {
+        lastFetchedUserID = 0
+    }
+
     func setLastFetchedUser() {
         guard let lastFetchedUser = users.map(\.id).sorted(by: { $0 > $1 }).first else {
             // Do not update the current one if it's nil
