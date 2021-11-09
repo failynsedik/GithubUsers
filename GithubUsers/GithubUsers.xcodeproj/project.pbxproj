@@ -19,6 +19,7 @@
 		3B8D5AA2273AEED900EA4C7A /* NetworkDataCachingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D5AA1273AEED900EA4C7A /* NetworkDataCachingPlugin.swift */; };
 		3B8D5AA4273AEFA000EA4C7A /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D5AA3273AEFA000EA4C7A /* NetworkManager.swift */; };
 		3B8D5AA7273AEFFC00EA4C7A /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D5AA6273AEFFC00EA4C7A /* UserAPI.swift */; };
+		3B8D5AA9273AF3E500EA4C7A /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D5AA8273AF3E500EA4C7A /* UserListViewModel.swift */; };
 		3B8D5AB0273AFB8700EA4C7A /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D5AAF273AFB8700EA4C7A /* UserResponse.swift */; };
 		3B8D5AB4273AFBBB00EA4C7A /* JSONSchemaSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8D5AB3273AFBBB00EA4C7A /* JSONSchemaSupport.swift */; };
 		6C6A8E1A9A1708BD0F7CA1D6 /* Pods_GithubUsers_GithubUsersUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 784463D22D035B0206B72F00 /* Pods_GithubUsers_GithubUsersUITests.framework */; };
@@ -60,6 +61,7 @@
 		3B8D5AA1273AEED900EA4C7A /* NetworkDataCachingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataCachingPlugin.swift; sourceTree = "<group>"; };
 		3B8D5AA3273AEFA000EA4C7A /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		3B8D5AA6273AEFFC00EA4C7A /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
+		3B8D5AA8273AF3E500EA4C7A /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 		3B8D5AAF273AFB8700EA4C7A /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		3B8D5AB3273AFBBB00EA4C7A /* JSONSchemaSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONSchemaSupport.swift; sourceTree = "<group>"; };
 		45C111CC11DEF6960F5B5260 /* Pods_GithubUsersTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GithubUsersTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -191,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				3B8D5A9E273AED6B00EA4C7A /* UserListViewController.swift */,
+				3B8D5AA8273AF3E500EA4C7A /* UserListViewModel.swift */,
 			);
 			path = UserList;
 			sourceTree = "<group>";
@@ -520,6 +523,7 @@
 			files = (
 				3B8D5A68273AE25C00EA4C7A /* AppDelegate.swift in Sources */,
 				3B8D5AA2273AEED900EA4C7A /* NetworkDataCachingPlugin.swift in Sources */,
+				3B8D5AA9273AF3E500EA4C7A /* UserListViewModel.swift in Sources */,
 				3B8D5AB4273AFBBB00EA4C7A /* JSONSchemaSupport.swift in Sources */,
 				3B8D5AA7273AEFFC00EA4C7A /* UserAPI.swift in Sources */,
 				3B8D5AB0273AFB8700EA4C7A /* UserResponse.swift in Sources */,
