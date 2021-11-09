@@ -37,8 +37,6 @@ class UserTableViewCell: UITableViewCell {
 
     override func draw(_ rect: CGRect) {
         super.draw(rect)
-
-        receiverImageView.addCornerRadiusWithShadow(30, x: 0, y: 5, blur: 7, shadowOpacity: 0.2)
         containerView.addCornerRadiusWithShadow(3, x: 0, y: 2, blur: 3, shadowOpacity: 0.16)
     }
 
