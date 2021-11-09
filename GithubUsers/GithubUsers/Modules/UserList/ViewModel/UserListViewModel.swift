@@ -47,6 +47,10 @@ extension UserListViewModel {
 // MARK: - Network Layer
 
 extension UserListViewModel {
+    func clearUsers() {
+        users.removeAll()
+    }
+
     func getUsers() -> Promise<[UserResponse]> {
         let limit = 10
         let promise: Promise<[UserResponse]> = networkManager.request(target: .getUsers(since: lastFetchedUser, limit: limit))

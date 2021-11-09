@@ -7,6 +7,11 @@
 
 import SnapKit
 
+private enum GetUserOrigin {
+    case onLoad
+    case onRefresh
+}
+
 class UserListViewController: UIViewController {
     // MARK: - Subviews
 
@@ -39,14 +44,7 @@ class UserListViewController: UIViewController {
         setupNav()
         setupViews()
 
-        viewModel.getUsers()
-            .done { [weak self] _ in
-                self?.reloadTableView()
-            }
-            .catch { _ in
-                print("❌ Call Failed")
-                // TODO: Add pod notificationbannerswift
-            }
+        getUsers(.onLoad)
     }
 }
 
@@ -65,6 +63,14 @@ extension UserListViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
         title = "Github DM"
+
+        let refreshBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .refresh,
+            target: self,
+            action: #selector(refreshData)
+        )
+        refreshBarButtonItem.tintColor = .systemBackground
+        navigationItem.rightBarButtonItem = refreshBarButtonItem
     }
 
     private func setupViews() {
@@ -80,9 +86,30 @@ extension UserListViewController {
     }
 }
 
-// MARK: - UI Update
+// MARK: - Refresh
 
 extension UserListViewController {
+    @objc private func refreshData() {
+        getUsers(.onRefresh)
+    }
+
+    private func getUsers(_ origin: GetUserOrigin) {
+        switch origin {
+        case .onLoad, .onRefresh:
+            viewModel.clearUsers()
+        }
+
+		// NOTE: Planning to Lottie for the loading animation, but currently running out of time. ⏰
+        viewModel.getUsers()
+            .done { [weak self] _ in
+                self?.reloadTableView()
+            }
+            .catch { _ in
+                print("❌ Call Failed")
+                // TODO: Add pod notificationbannerswift
+            }
+    }
+
     private func reloadTableView() {
         let contentOffset: CGPoint = tableView.contentOffset
         tableView.reloadData()
@@ -91,7 +118,6 @@ extension UserListViewController {
     }
 }
 
-// MARK: - Delegates
 
 // MARK: UITableViewDelegate
 
@@ -105,7 +131,7 @@ extension UserListViewController: UITableViewDelegate {
     }
 }
 
-// MARK: UITableViewDataSource
+// MARK: - UITableViewDataSource
 
 extension UserListViewController: UITableViewDataSource {
     func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
