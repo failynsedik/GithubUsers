@@ -557,6 +557,7 @@
 				3B8D5A68273AE25C00EA4C7A /* AppDelegate.swift in Sources */,
 				3B8D5ABC273B03D700EA4C7A /* UIView+Shadow.swift in Sources */,
 				3B8D5AA2273AEED900EA4C7A /* NetworkDataCachingPlugin.swift in Sources */,
+				3B8D5AB9273B032500EA4C7A /* Reusable.swift in Sources */,
 				3B8D5AA9273AF3E500EA4C7A /* UserListViewModel.swift in Sources */,
 				3B8D5AB4273AFBBB00EA4C7A /* JSONSchemaSupport.swift in Sources */,
 				3B8D5AC1273B089600EA4C7A /* BaseTableView.swift in Sources */,
