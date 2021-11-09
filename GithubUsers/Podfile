@@ -9,6 +9,7 @@ target 'GithubUsers' do
   
   pod 'Kingfisher', '~> 7.1.0' # Download and Cache Remote Images
   pod 'Moya', '~> 15.0.0' # Network Abstraction Layer
+	pod 'NotificationBannerSwift', '~> 3.0.0' # Customizable Banners
   pod 'PromiseKit', '~> 6.15.3' # Swift Promises
   pod 'SnapKit', '~> 5.0.1' # Programmatic Auto Layout
   pod 'SwiftFormat/CLI', '~> 0.48.16' # Code Formatter
