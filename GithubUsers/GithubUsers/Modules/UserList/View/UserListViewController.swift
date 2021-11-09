@@ -121,7 +121,7 @@ extension UserListViewController {
                 // for the pagination. The reason why this is called here, instead
                 // of inside `viewModel.getUsers` is to avoid coupling the code.
                 self?.viewModel.setLastFetchedUser()
-                self?.reloadTableView()
+                self?.reloadTableView(triggerPoint)
             }
             .catch { error in
                 let banner = NotificationBanner(subtitle: error.localizedDescription, style: .danger)
@@ -129,11 +129,20 @@ extension UserListViewController {
             }
     }
 
-    private func reloadTableView() {
-        let contentOffset: CGPoint = tableView.contentOffset
-        tableView.reloadData()
-        tableView.layoutIfNeeded()
-        tableView.setContentOffset(contentOffset, animated: false)
+    private func reloadTableView(_ triggerPoint: GetUserListTriggerPoint) {
+        switch triggerPoint {
+        case .onLoad, .onRefresh:
+            // Scroll to top
+            tableView.reloadData()
+            tableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
+
+        case .onEndOfList:
+            // Reload from the last cell
+            let contentOffset: CGPoint = tableView.contentOffset
+            tableView.reloadData()
+            tableView.layoutIfNeeded()
+            tableView.setContentOffset(contentOffset, animated: false)
+        }
     }
 }
 
