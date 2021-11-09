@@ -82,48 +82,6 @@ extension UserResponse {
         try self.init(data: try Data(contentsOf: url))
     }
 
-    func with(
-        login: String,
-        id: Int,
-        nodeID: String?? = nil,
-        avatarURL: String?? = nil,
-        gravatarID: String?? = nil,
-        url: String?? = nil,
-        htmlURL: String?? = nil,
-        followersURL: String?? = nil,
-        followingURL: String?? = nil,
-        gistsURL: String?? = nil,
-        starredURL: String?? = nil,
-        subscriptionsURL: String?? = nil,
-        organizationsURL: String?? = nil,
-        reposURL: String?? = nil,
-        eventsURL: String?? = nil,
-        receivedEventsURL: String?? = nil,
-        type: String?? = nil,
-        siteAdmin: Bool?? = nil
-    ) -> UserResponse {
-        UserResponse(
-            login: login,
-            id: id,
-            nodeID: nodeID ?? self.nodeID,
-            avatarURL: avatarURL ?? self.avatarURL,
-            gravatarID: gravatarID ?? self.gravatarID,
-            url: url ?? self.url,
-            htmlURL: htmlURL ?? self.htmlURL,
-            followersURL: followersURL ?? self.followersURL,
-            followingURL: followingURL ?? self.followingURL,
-            gistsURL: gistsURL ?? self.gistsURL,
-            starredURL: starredURL ?? self.starredURL,
-            subscriptionsURL: subscriptionsURL ?? self.subscriptionsURL,
-            organizationsURL: organizationsURL ?? self.organizationsURL,
-            reposURL: reposURL ?? self.reposURL,
-            eventsURL: eventsURL ?? self.eventsURL,
-            receivedEventsURL: receivedEventsURL ?? self.receivedEventsURL,
-            type: type ?? self.type,
-            siteAdmin: siteAdmin ?? self.siteAdmin
-        )
-    }
-
     func jsonData() throws -> Data {
         try newJSONEncoder().encode(self)
     }
