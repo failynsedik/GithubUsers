@@ -11,6 +11,7 @@ import SnapKit
 private enum GetUserOrigin {
     case onLoad
     case onRefresh
+    case onEndOfList
 }
 
 class UserListViewController: UIViewController {
@@ -95,14 +96,29 @@ extension UserListViewController {
     }
 
     private func getUsers(_ origin: GetUserOrigin) {
+        // Do not proceed if currently fetching data
+        guard !viewModel.isLoading else { return }
+        viewModel.isLoading = true
+
         switch origin {
         case .onLoad, .onRefresh:
+            // Should start from the first
             viewModel.clearUsers()
+        case .onEndOfList:
+            // Do nothing...
+            break
         }
 
         // NOTE: Planning to Lottie for the loading animation, but currently running out of time. ⏰
         viewModel.getUsers()
+            .ensure {
+                self.viewModel.isLoading = false
+            }
             .done { [weak self] _ in
+                // Setting the last fetched user since this will be the basis
+                // for the pagination. The reason why this is called here, instead
+                // of inside `viewModel.getUsers` is to avoid coupling the code.
+                self?.viewModel.setLastFetchedUser()
                 self?.reloadTableView()
             }
             .catch { error in
@@ -116,6 +132,20 @@ extension UserListViewController {
         tableView.reloadData()
         tableView.layoutIfNeeded()
         tableView.setContentOffset(contentOffset, animated: false)
+    }
+}
+
+// MARK: - UIScrollViewDelegate
+
+extension UserListViewController: UIScrollViewDelegate {
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate _: Bool) {
+        if scrollView == tableView {
+            if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height {
+                if !viewModel.isLoading {
+                    getUsers(.onEndOfList)
+                }
+            }
+        }
     }
 }
 

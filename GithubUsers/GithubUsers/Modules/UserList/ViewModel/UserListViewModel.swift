@@ -13,6 +13,7 @@ class UserListViewModel {
 
     private var users: [UserResponse]
     private var lastFetchedUser: Int = 0
+    var isLoading: Bool = false
 
     // MARK: - Initializer
 
@@ -49,6 +50,15 @@ extension UserListViewModel {
 extension UserListViewModel {
     func clearUsers() {
         users.removeAll()
+    }
+
+    func setLastFetchedUser() {
+        guard let lastFetchedUser = users.map(\.id).sorted(by: { $0 > $1 }).first else {
+            // Do not update the current one if it's nil
+            return
+        }
+
+        self.lastFetchedUser = lastFetchedUser
     }
 
     func getUsers() -> Promise<[UserResponse]> {
