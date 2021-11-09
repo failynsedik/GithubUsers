@@ -1,0 +1,26 @@
+# Uncomment the next line to define a global platform for your project
+platform :ios, '13.0'
+
+target 'GithubUsers' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  
+  pod 'Kingfisher', '~> 7.1.0' # Download and Cache Remote Images
+  pod 'Moya', '~> 15.0.0' # Network Abstraction Layer
+  pod 'PromiseKit', '~> 6.15.3' # Swift Promises
+  pod 'SnapKit', '~> 5.0.1' # Programmatic Auto Layout
+  pod 'SwiftFormat', '~> 0.48.16' # Code Formatter
+
+  # Pods for GithubUsers
+
+  target 'GithubUsersTests' do
+    inherit! :search_paths
+    # Pods for testing
+    pod 'Nimble', '~> 9.2.1' # Matcher Framework
+  end
+
+  target 'GithubUsersUITests' do
+    # Pods for testing
+  end
+
+end
