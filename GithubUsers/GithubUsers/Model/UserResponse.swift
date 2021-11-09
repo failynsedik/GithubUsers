@@ -8,7 +8,7 @@
 import Foundation
 
 class UserResponse: Codable {
-    let login: String?
+    let login: String
     let id: Int
     let nodeID: String?
     let avatarURL: String?
@@ -41,7 +41,7 @@ class UserResponse: Codable {
         case siteAdmin = "site_admin"
     }
 
-    init(login: String?, id: Int, nodeID: String?, avatarURL: String?, gravatarID: String?, url: String?, htmlURL: String?, followersURL: String?, followingURL: String?, gistsURL: String?, starredURL: String?, subscriptionsURL: String?, organizationsURL: String?, reposURL: String?, eventsURL: String?, receivedEventsURL: String?, type: String?, siteAdmin: Bool?) {
+    init(login: String, id: Int, nodeID: String?, avatarURL: String?, gravatarID: String?, url: String?, htmlURL: String?, followersURL: String?, followingURL: String?, gistsURL: String?, starredURL: String?, subscriptionsURL: String?, organizationsURL: String?, reposURL: String?, eventsURL: String?, receivedEventsURL: String?, type: String?, siteAdmin: Bool?) {
         self.login = login
         self.id = id
         self.nodeID = nodeID
@@ -83,7 +83,7 @@ extension UserResponse {
     }
 
     func with(
-        login: String?? = nil,
+        login: String,
         id: Int,
         nodeID: String?? = nil,
         avatarURL: String?? = nil,
@@ -103,7 +103,7 @@ extension UserResponse {
         siteAdmin: Bool?? = nil
     ) -> UserResponse {
         UserResponse(
-            login: login ?? self.login,
+            login: login,
             id: id,
             nodeID: nodeID ?? self.nodeID,
             avatarURL: avatarURL ?? self.avatarURL,
