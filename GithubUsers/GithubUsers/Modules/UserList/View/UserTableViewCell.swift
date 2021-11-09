@@ -18,7 +18,7 @@ class UserTableViewCell: UITableViewCell {
         return view
     }()
 
-    private let receiverImageView: UIImageView = {
+    private let avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
@@ -48,21 +48,21 @@ class UserTableViewCell: UITableViewCell {
         selectionStyle = .none
 
         contentView.addSubview(containerView)
-        containerView.addSubview(receiverImageView)
+        containerView.addSubview(avatarImageView)
         containerView.addSubview(usernameLabel)
 
         containerView.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(8)
         }
 
-        receiverImageView.snp.makeConstraints {
+        avatarImageView.snp.makeConstraints {
             $0.size.equalTo(60)
             $0.top.leading.bottom.equalToSuperview().inset(16)
         }
 
         usernameLabel.snp.makeConstraints {
-            $0.centerY.equalTo(receiverImageView)
-            $0.leading.equalTo(receiverImageView.snp.trailing).offset(16)
+            $0.centerY.equalTo(avatarImageView)
+            $0.leading.equalTo(avatarImageView.snp.trailing).offset(16)
             $0.trailing.equalToSuperview().inset(16)
         }
     }
@@ -79,8 +79,8 @@ extension UserTableViewCell {
     func setup(content: UserTableViewCellContent) {
         usernameLabel.text = content.username
 
-        receiverImageView.kf.indicatorType = .activity
-        receiverImageView.kf.setImage(
+        avatarImageView.kf.indicatorType = .activity
+        avatarImageView.kf.setImage(
             with: content.avatarURL,
             placeholder: UIImage(named: "ic_user_placeholder"),
             options: [
