@@ -5,6 +5,7 @@
 //  Created by Failyn Kaye Sedik on 11/10/21.
 //
 
+import NotificationBannerSwift
 import SnapKit
 
 private enum GetUserOrigin {
@@ -99,14 +100,14 @@ extension UserListViewController {
             viewModel.clearUsers()
         }
 
-		// NOTE: Planning to Lottie for the loading animation, but currently running out of time. ⏰
+        // NOTE: Planning to Lottie for the loading animation, but currently running out of time. ⏰
         viewModel.getUsers()
             .done { [weak self] _ in
                 self?.reloadTableView()
             }
-            .catch { _ in
-                print("❌ Call Failed")
-                // TODO: Add pod notificationbannerswift
+            .catch { error in
+                let banner = NotificationBanner(subtitle: error.localizedDescription, style: .danger)
+                banner.show()
             }
     }
 
@@ -118,8 +119,7 @@ extension UserListViewController {
     }
 }
 
-
-// MARK: UITableViewDelegate
+// MARK: - UITableViewDelegate
 
 extension UserListViewController: UITableViewDelegate {
     func tableView(_: UITableView, didSelectRowAt _: IndexPath) {
