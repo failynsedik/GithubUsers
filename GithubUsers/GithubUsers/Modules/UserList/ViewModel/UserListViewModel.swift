@@ -36,7 +36,7 @@ extension UserListViewModel {
         guard let user = users[safe: row] else { return nil }
 
         let avatarURL = URL(string: user.avatarURL ?? "")
-		let username = "@\(user.login)"
+        let username = "@\(user.login)"
         return UserTableViewCellContent(
             avatarURL: avatarURL,
             username: username
