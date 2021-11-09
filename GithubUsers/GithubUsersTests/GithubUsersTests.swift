@@ -5,8 +5,8 @@
 //  Created by Failyn Kaye Sedik on 11/10/21.
 //
 
-@testable import GithubUsers
 import XCTest
+@testable import GithubUsers
 
 class GithubUsersTests: XCTestCase {
     override func setUpWithError() throws {
