@@ -151,7 +151,6 @@
 				39023C09EF7EE244306AB86F /* Pods-GithubUsersTests.debug.xcconfig */,
 				DD46944840C8FCF7B422F1CA /* Pods-GithubUsersTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -173,6 +172,7 @@
 			buildConfigurationList = 3B8D5A8E273AE25D00EA4C7A /* Build configuration list for PBXNativeTarget "GithubUsers" */;
 			buildPhases = (
 				4F73DA527005412E15CF957D /* [CP] Check Pods Manifest.lock */,
+				3B8D5A97273AE75C00EA4C7A /* SwiftFormat Run Script */,
 				3B8D5A60273AE25C00EA4C7A /* Sources */,
 				3B8D5A61273AE25C00EA4C7A /* Frameworks */,
 				3B8D5A62273AE25C00EA4C7A /* Resources */,
@@ -297,6 +297,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3B8D5A97273AE75C00EA4C7A /* SwiftFormat Run Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftFormat Run Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"$SRCROOT\"\n";
+		};
 		4F73DA527005412E15CF957D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
