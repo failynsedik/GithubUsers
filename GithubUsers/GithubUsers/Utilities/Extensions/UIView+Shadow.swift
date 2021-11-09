@@ -16,24 +16,15 @@ extension UIView {
         shadowColor: UIColor = .black,
         shadowOpacity: Float
     ) {
-        // Set corner radius
         layer.cornerRadius = cornerRadius
-
-        // Set shadow
-        let holderView = UIView(frame: frame)
-        holderView.backgroundColor = .clear
-        superview?.addSubview(holderView)
-        holderView.center = center
-        holderView.addSubview(self)
-        center = CGPoint(x: holderView.frame.size.width / 2.0, y: holderView.frame.size.height / 2.0)
-
-        layer.masksToBounds = true
-        holderView.layer.masksToBounds = false
-
-        holderView.layer.shadowColor = shadowColor.cgColor
-        holderView.layer.shadowOpacity = shadowOpacity
-        holderView.layer.shadowRadius = shadowRadius
-        holderView.layer.shadowOffset = CGSize(width: width, height: height)
+        layer.masksToBounds = false
+        layer.shadowColor = shadowColor.cgColor
+        layer.shadowOpacity = shadowOpacity
+        layer.shadowOffset = CGSize(width: width, height: height)
+        layer.shadowRadius = shadowRadius
+        layer.shadowPath = UIBezierPath(rect: bounds).cgPath
+        layer.shouldRasterize = true
+        layer.rasterizationScale = UIScreen.main.scale
     }
 
     func addShadow(
