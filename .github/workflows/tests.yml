@@ -20,6 +20,6 @@ jobs:
         ls -a
         pod install
         xcrun simctl list devices
-        xcodebuild clean build -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,id=0746314C-1075-44CE-BCF5-6B8CE3144F3D,OS=15.0,name=iPhone 13 Pro" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        xcodebuild clean build -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13 Pro" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
     - name: Run tests
       run: xcodebuild test-without-building -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 11,OS=13.0" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
