@@ -19,6 +19,6 @@ jobs:
         cd GithubUsers
         ls -a
         pod install
-        xcodebuild clean build -workspace "GithubUsers/GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 8,OS=13.0" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        xcodebuild clean build -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 8,OS=13.0" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
     - name: Run tests
-      run: xcodebuild test-without-building -workspace "GithubUsers/GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 8,OS=13.0" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      run: xcodebuild test-without-building -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 8,OS=13.0" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
