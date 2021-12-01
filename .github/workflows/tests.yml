@@ -26,4 +26,4 @@ jobs:
         ls -a
         cd GithubUsers
         ls -a
-        xcodebuild test-without-building -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 11,OS=13.0" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+        xcodebuild test-without-building -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13 Pro" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
