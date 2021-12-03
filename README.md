@@ -26,6 +26,7 @@ This project is something I did for a technical exam. But, I will go back to thi
 - (At this time) Initial unit tests
 - Caching data with a `Moya` plugin
 - Caching images with `Kingfisher`
+- Implemented initial CI setup
 
 ### TODO:
 - [ ] App icon
