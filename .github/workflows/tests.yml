@@ -25,4 +25,4 @@ jobs:
         -sdk iphonesimulator \
         -derivedDataPath "BuildBinaryForTest" \
         -destination platform=iOS\ Simulator,name=iPhone\ 11 \
-        clean test | tee xcodebuild.log
+        clean test | tee xcodebuild.log | xcpretty
