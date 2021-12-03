@@ -14,6 +14,16 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
-      run: xcodebuild clean build -workspace "GithubUsers/GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=latest" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      run: |
+        ls -a
+        cd GithubUsers
+        ls -a
+        pod install
+        xcrun simctl list devices
+        xcodebuild clean build -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13 Pro" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
     - name: Run tests
-      run: xcodebuild test-without-building -xctestrun $(find . -type f -name "*.xctestrun") -workspace "GithubUsers/GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,name=iPhone 12 Pro,OS=latest" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+      run: |
+        ls -a
+        cd GithubUsers
+        ls -a
+        xcodebuild test-without-building -workspace "GithubUsers.xcworkspace" -scheme "Debug" -configuration "Debug"  -destination "platform=iOS Simulator,OS=15.0,name=iPhone 13 Pro" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
