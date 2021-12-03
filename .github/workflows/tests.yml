@@ -1,0 +1,28 @@
+name: Swift
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run tests
+      run: |
+        ls -a
+        cd GithubUsers
+        ls -a
+        xcodebuild \
+        -workspace GithubUsers.xcworkspace \
+        -scheme Debug \
+        -configuration Debug \
+        -sdk iphonesimulator \
+        -derivedDataPath "BuildBinaryForTest" \
+        -destination platform=iOS\ Simulator,name=iPhone\ 11 \
+        clean test | tee xcodebuild.log | xcpretty
