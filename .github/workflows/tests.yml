@@ -26,3 +26,4 @@ jobs:
         -derivedDataPath "BuildBinaryForTest" \
         -destination platform=iOS\ Simulator,name=iPhone\ 11 \
         clean test | tee xcodebuild.log | xcpretty
+        echo "Exited with this ----> '$?'"
