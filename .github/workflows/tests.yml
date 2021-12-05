@@ -26,5 +26,5 @@ jobs:
         -sdk iphonesimulator \
         -derivedDataPath "BuildBinaryForTest" \
         -destination platform=iOS\ Simulator,name=iPhone\ 11 \
-        clean test
+        clean test | xcpretty --simple --color; exit ${PIPESTATUS[0]}
         echo "Exited with this ----> '$?'"
