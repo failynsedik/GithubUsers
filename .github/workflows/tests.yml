@@ -26,10 +26,14 @@ jobs:
         -sdk iphonesimulator \
         -derivedDataPath "BuildBinaryForTest" \
         -destination platform=iOS\ Simulator,name=iPhone\ 11 \
-        clean test | tee xcodebuild.log | xcpretty
+        clean test | tee xcodebuild.log | xcpretty --color --test
         echo "Exited with this ----> '$?'"
     - name: Check Test Results
       if: steps.xcodebuild.outputs.result != 0
       run: |
-        exit 1
-        echo "steps.xcodebuild.outputs.result ----> 'steps.xcodebuild.outputs.result?'"
+        if [[ $? == 0 ]]; then
+            echo "✅ Unit Tests Passed"
+        else
+            echo "🔴 Unit Tests Failed and will exit with this ----> '$?'"
+            exit $?
+        fi
