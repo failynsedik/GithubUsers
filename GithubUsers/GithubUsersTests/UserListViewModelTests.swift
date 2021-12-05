@@ -65,7 +65,7 @@ class UserListViewModelTests: XCTestCase {
         // `lastFetchedUserID` should be the default 0
         let viewModel = UserListViewModel()
         viewModel.setLastFetchedUser()
-        expect(viewModel.lastFetchedUserID).to(equal(1))
+        expect(viewModel.lastFetchedUserID).to(equal(0))
     }
 
     func testLastFetchedUserValue() {
