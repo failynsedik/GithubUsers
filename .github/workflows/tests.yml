@@ -14,6 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Run tests
+      id: xcodebuild
       run: |
         ls -a
         cd GithubUsers
@@ -25,4 +26,5 @@ jobs:
         -sdk iphonesimulator \
         -derivedDataPath "BuildBinaryForTest" \
         -destination platform=iOS\ Simulator,name=iPhone\ 11 \
-        clean test | tee xcodebuild.log | xcpretty
+        clean test | xcpretty --simple --color; exit ${PIPESTATUS[0]}
+        echo "Exited with this ----> '$?'"
